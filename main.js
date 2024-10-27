@@ -132,11 +132,12 @@ function defineFunction(name, definition) {
 // Event listener for Calculate button
 document.getElementById('calculate').addEventListener('click', () => {
     const expression = document.getElementById('expression').value;
+    const resultDiv = document.getElementById('result');
     try {
         const result = evaluateExpression(expression, functions);
-        document.getElementById('result').textContent = `Result: ${result}`;
+        resultDiv.textContent = `Result: ${result}`;
     } catch (error) {
-        document.getElementById('result').textContent = `Error: ${error.message}`;
+        resultDiv.textContent = `Error: ${error.message}`;
     }
 });
 
@@ -144,14 +145,15 @@ document.getElementById('calculate').addEventListener('click', () => {
 document.getElementById('defineFunction').addEventListener('click', () => {
     const functionName = document.getElementById('functionName').value.trim();
     const truthTable = document.getElementById('truthTable').value.trim();
+    const defineResultDiv = document.getElementById('defineResult');
     if (functionName && truthTable) {
         try {
             defineFunction(functionName, truthTable);
-            document.getElementById('defineResult').textContent = `Function '${functionName}' defined successfully!`;
+            defineResultDiv.textContent = `Function '${functionName}' defined successfully!`;
         } catch (error) {
-            document.getElementById('defineResult').textContent = `Error defining function: ${error.message}`;
+            defineResultDiv.textContent = `Error defining function: ${error.message}`;
         }
     } else {
-        document.getElementById('defineResult').textContent = 'Please enter both function name and truth table.';
+        defineResultDiv.textContent = 'Please enter both function name and truth table.';
     }
 });
