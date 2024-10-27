@@ -45,4 +45,13 @@ button:hover {
     margin-top: 20px;
     font-weight: bold;
     color: #333;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#result, #defineResult {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
 }
